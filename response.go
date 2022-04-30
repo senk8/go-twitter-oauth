@@ -1,4 +1,4 @@
-package gotwtr_oauth
+package go_twitter_oauth
 
 type TokenResponse struct {
 	AccessToken  string `json:"access_token"`

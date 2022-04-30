@@ -1,4 +1,4 @@
-package gotwtr_oauth
+package go_twitter_oauth
 
 import (
 	"context"
