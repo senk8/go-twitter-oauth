@@ -1,4 +1,4 @@
-package go_twitter_oauth
+package oauth2
 
 import (
 	"context"
@@ -28,6 +28,8 @@ type TokenResponse struct {
 	AccessToken  string `json:"access_token"`
 	TokenType    string `json:"token_type"`
 	RefreshToken string `json:"refresh_token,omitempty"`
+	ExpiresIn int `json:"expires_in,omitempty"`
+	Scope string `json:"scope,omitempty"`
 }
 
 var _ OAuth2Client = (*Client)(nil)
@@ -45,7 +47,7 @@ func New(config *Config) *Client {
 func (c *Client) ExecFlow(ctx context.Context) (*TokenResponse, error) {
 	// ローカルにサーバーを立てて、リダイレクトを待機します
 	mux := http.NewServeMux()
-	mux.HandleFunc("/auth", c.authHandler)
+	mux.HandleFunc("/authz", c.authHandler)
 	mux.HandleFunc("/callback", c.callbackHandler)
 	srv := &http.Server{
 		Addr:    listenAddr,

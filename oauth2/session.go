@@ -1,4 +1,4 @@
-package go_twitter_oauth
+package oauth2
 
 import (
 	"crypto/rand"
