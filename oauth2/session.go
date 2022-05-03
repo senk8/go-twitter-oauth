@@ -21,10 +21,10 @@ type Session struct {
 }
 
 func newSession() *Session {
-	r := getRandomString(stateLength)
+	r := getRandomBytes(stateLength)
 	state := base64.RawURLEncoding.EncodeToString(r)
 
-	r = getRandomString(codeVerifierLength)
+	r = getRandomBytes(codeVerifierLength)
 	codeVerifier := base64.RawURLEncoding.EncodeToString(r)
 
 	h := sha256.Sum256([]byte(codeVerifier))
@@ -40,7 +40,7 @@ func newSession() *Session {
 	}
 }
 
-func getRandomString(l int) []byte {
+func getRandomBytes(l int) []byte {
 	b := make([]byte, l)
 	_, err := rand.Read(b)
 	if err != nil {
