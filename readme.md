@@ -20,8 +20,8 @@ Twitter Developer Portalで 事前の準備を済ませた上で以下を行い�
 $ go run main.go
 ```
 
-2. http://localhost:3000/authzにアクセスします。
+2. `http://localhost:3000/authz`にアクセスします。
 3. ツイッターの認可画面が出てくるのでOKをします。
-4. http://localhost:3000/callbackにリダイレクトします。
+4. `http://localhost:3000/callback`にリダイレクトします。
 5. APIを叩くのに成功します。
 
